@@ -4,3 +4,8 @@
   backdrop-filter: blur(10px);
   z-index: 1030;
 }
+
+.navbar.scrolled .navbar-brand i,
+.navbar.scrolled .navbar-brand span {
+  color: black !important;
+}

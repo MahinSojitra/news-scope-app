@@ -20,6 +20,7 @@ import { SourceCardComponent } from './shared/source-card/source-card.component'
 import { SkeletonSourceCardComponent } from './shared/skeleton-source-card/skeleton-source-card.component';
 import { NewsService } from './core/services/news.service';
 import { NewsFilterService } from './core/services/news-filter.service';
+import { TimeAgoPipe } from './core/pipes/time-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NewsFilterService } from './core/services/news-filter.service';
     ErrorComponent,
     OurSourcesComponent,
     SourceCardComponent,
-    SkeletonSourceCardComponent
+    SkeletonSourceCardComponent,
+    TimeAgoPipe
   ],
   imports: [
     CommonModule,

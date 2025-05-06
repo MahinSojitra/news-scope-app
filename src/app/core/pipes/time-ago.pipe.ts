@@ -11,7 +11,6 @@ export class TimeAgoPipe implements PipeTransform {
     const seconds = Math.floor((+now - +then) / 1000);
 
     if (seconds < 5) return 'Just now';
-
     if (seconds < 60) return `${seconds} sec ago`;
 
     const minutes = Math.floor(seconds / 60);
@@ -27,9 +26,11 @@ export class TimeAgoPipe implements PipeTransform {
     if (weeks < 4) return `${weeks} week${weeks > 1 ? 's' : ''} ago`;
 
     const months = Math.floor(days / 30);
-    if (months < 12) return `${months} month${months > 1 ? 's' : ''} ago`;
+    if (months < 12) {
+      return `${Math.max(1, months)} month${months !== 1 ? 's' : ''} ago`;
+    }
 
     const years = Math.floor(days / 365);
-    return `${years} year${years > 1 ? 's' : ''} ago`;
+    return `${Math.max(1, years)} year${years !== 1 ? 's' : ''} ago`;
   }
 }

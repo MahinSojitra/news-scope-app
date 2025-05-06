@@ -10,7 +10,7 @@ export class HeaderComponent {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.scrolled = window.scrollY > 25;
+    this.scrolled = window.scrollY > 35;
   }
 
   scrolled = false;

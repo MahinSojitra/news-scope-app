@@ -8,7 +8,7 @@ import { CacheEntry } from '../models/cache-entry.model';
 @Injectable()
 export class NewsService {
   private apiUrl = 'https://news-scope-api.vercel.app/api/news';
-  private cacheTTL = 5 * 60 * 1000;
+  private cacheTTL = 20 * 60 * 1000;
 
   private sourcesCache = new Map<string, CacheEntry<SourcesResponse>>();
   private topHeadlinesCache = new Map<string, CacheEntry<NewsResponse>>();

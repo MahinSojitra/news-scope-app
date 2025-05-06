@@ -1,7 +1,7 @@
 import { query } from "@angular/animations";
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { debounceTime, delay, distinctUntilChanged, filter, switchMap, tap } from "rxjs";
+import { debounceTime, delay, distinctUntilChanged, filter, map, switchMap, tap } from "rxjs";
 import { NewsResponse, NewsArticle } from "src/app/core/models/news-response.model";
 import { NewsService } from "src/app/core/services/news.service";
 
@@ -26,6 +26,7 @@ export class SearchComponent implements OnInit {
     this.searchForm.get('query')!.valueChanges.pipe(
       debounceTime(500),
       distinctUntilChanged(),
+      map((query: string) => query.trim()),
       filter((query: string) => query.length > 2),
       tap(() => {
         this.isLoading = true;
